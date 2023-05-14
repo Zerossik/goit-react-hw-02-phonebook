@@ -8,3 +8,6 @@ export function Section({ title }) {
     </SectionEl>
   );
 }
+Section.propTypes = {
+  title: PropTypes.string.isRequired,
+};
