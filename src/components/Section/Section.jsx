@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import { SectionEl } from './Section.styled';
 
-export function Section({ title }) {
+export function Section({ title, children }) {
   return (
     <SectionEl>
       <h2>{title}</h2>
+      {children}
     </SectionEl>
   );
 }
