@@ -24,14 +24,13 @@ export class App extends Component {
     );
   };
 
-  hendleChangeFilter = value => {
-    console.log(value);
+  hendleChangeFilter = ({ target }) => {
     const { contacts } = this.state;
-    this.setState({ filter: value });
+    this.setState({ filter: target.value });
     const result = [...contacts].filter(contact =>
-      contact.name.toLowerCase().includes(value.toLowerCase())
+      contact.name.toLowerCase().includes(target.value.toLowerCase())
     );
-    console.log(result, value);
+    console.log(result);
   };
 
   render() {

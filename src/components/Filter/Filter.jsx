@@ -7,7 +7,7 @@ export function Filter({ filter, hendleChangeFilter }) {
         type="text"
         name="filter"
         value={filter}
-        onChange={({ target }) => hendleChangeFilter(target.value)}
+        onChange={hendleChangeFilter}
       />
     </label>
   );
