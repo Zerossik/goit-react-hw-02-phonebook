@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 export function ContactsList({ title, contacts }) {
   console.log(contacts());
   return (
@@ -13,3 +14,7 @@ export function ContactsList({ title, contacts }) {
     </div>
   );
 }
+ContactsList.propTypes = {
+  title: PropTypes.string.isRequired,
+  contacts: PropTypes.func.isRequired,
+};

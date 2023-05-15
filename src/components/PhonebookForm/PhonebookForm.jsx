@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { NameInput } from 'components/NameInput/NameInput';
 import { PhoneInput } from 'components/PhoneInput/PhoneInput';
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 
 export class PhoneForm extends Component {
   state = {
@@ -9,14 +10,14 @@ export class PhoneForm extends Component {
     number: '',
   };
 
-  hendleChange = evt => {
+  handlerChange = evt => {
     const { name, value } = evt.target;
     this.setState({
       [name]: value,
     });
   };
 
-  hendleSubmit = evt => {
+  handlerSubmit = evt => {
     evt.preventDefault();
     const { name, number } = this.state;
     const { addContact } = this.props;
@@ -36,16 +37,16 @@ export class PhoneForm extends Component {
     const { name, number } = this.state;
 
     return (
-      <form onSubmit={this.hendleSubmit}>
+      <form onSubmit={this.handlerSubmit}>
         <label>
           Name
           <br />
-          <NameInput name={name} hendleChange={this.hendleChange} />
+          <NameInput name={name} handlerChange={this.handlerChange} />
         </label>
         <br />
         <label>
           Number <br />
-          <PhoneInput number={number} hendleChange={this.hendleChange} />
+          <PhoneInput number={number} handlerChange={this.handlerChange} />
         </label>
         <br />
         <button type="submit">Add contact</button>
@@ -53,3 +54,6 @@ export class PhoneForm extends Component {
     );
   }
 }
+PhoneForm.propTypes = {
+  addContact: PropTypes.func.isRequired,
+};

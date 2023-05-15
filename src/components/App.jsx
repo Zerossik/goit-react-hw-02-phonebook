@@ -16,12 +16,9 @@ export class App extends Component {
   };
 
   addContact = contact => {
-    this.setState(
-      prevState => ({
-        contacts: [...prevState.contacts, contact],
-      }),
-      () => console.log(this.state)
-    );
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, contact],
+    }));
   };
 
   handlerChangeFilter = ({ target }) => {

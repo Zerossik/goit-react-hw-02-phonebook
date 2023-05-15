@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export function Filter({ filter, handlerChangeFilter }) {
   return (
     <label>
@@ -12,3 +14,8 @@ export function Filter({ filter, handlerChangeFilter }) {
     </label>
   );
 }
+
+Filter.propTypes = {
+  filter: PropTypes.string.isRequired,
+  handlerChangeFilter: PropTypes.func.isRequired,
+};
