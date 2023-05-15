@@ -5,4 +5,5 @@ export const SectionEl = styled.section`
   width: 400px;
   text-align: center;
   outline: 1px solid black;
+  padding: 20px;
 `;

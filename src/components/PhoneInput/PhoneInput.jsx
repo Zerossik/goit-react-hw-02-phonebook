@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
+import { Input } from 'components/Styled/Input.styled';
 
 export function PhoneInput({ number, handlerChange }) {
   return (
-    <input
+    <Input
       type="tel"
       name="number"
       value={number}

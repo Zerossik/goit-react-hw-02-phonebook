@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
+import { Input } from '../Styled/Input.styled';
 
 export function NameInput({ name, handlerChange }) {
   return (
-    <input
+    <Input
       type="text"
       name="name"
       value={name}

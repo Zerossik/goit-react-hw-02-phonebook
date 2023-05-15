@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
+import { Input } from 'components/Styled/Input.styled';
 
 export function Filter({ filter, handlerChangeFilter }) {
   return (
     <label>
       Find Contacts by name
       <br />
-      <input
+      <Input
         type="text"
         name="filter"
         value={filter}

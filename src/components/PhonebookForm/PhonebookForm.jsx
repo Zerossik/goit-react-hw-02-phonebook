@@ -3,6 +3,8 @@ import { NameInput } from 'components/NameInput/NameInput';
 import { PhoneInput } from 'components/PhoneInput/PhoneInput';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
+import { FormButton } from './PhonebookForm.styled';
+import { StyledLabel, Required } from 'components/Styled/Label.styled';
 
 export class PhoneForm extends Component {
   state = {
@@ -38,18 +40,19 @@ export class PhoneForm extends Component {
 
     return (
       <form onSubmit={this.handlerSubmit}>
-        <label>
-          Name
+        <StyledLabel>
+          Name<Required>*</Required>
           <br />
           <NameInput name={name} handlerChange={this.handlerChange} />
-        </label>
+        </StyledLabel>
         <br />
-        <label>
-          Number <br />
+        <StyledLabel>
+          Number<Required>*</Required>
+          <br />
           <PhoneInput number={number} handlerChange={this.handlerChange} />
-        </label>
+        </StyledLabel>
         <br />
-        <button type="submit">Add contact</button>
+        <FormButton type="submit">Add contact</FormButton>
       </form>
     );
   }
