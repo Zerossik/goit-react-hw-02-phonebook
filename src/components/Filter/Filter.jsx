@@ -1,4 +1,4 @@
-export function Filter({ filter, hendleChangeFilter }) {
+export function Filter({ filter, handlerChangeFilter }) {
   return (
     <label>
       Find Contacts by name
@@ -7,7 +7,7 @@ export function Filter({ filter, hendleChangeFilter }) {
         type="text"
         name="filter"
         value={filter}
-        onChange={hendleChangeFilter}
+        onChange={handlerChangeFilter}
       />
     </label>
   );

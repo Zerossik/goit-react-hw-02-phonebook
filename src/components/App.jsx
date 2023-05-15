@@ -24,22 +24,28 @@ export class App extends Component {
     );
   };
 
-  hendleChangeFilter = ({ target }) => {
-    const { contacts } = this.state;
+  handlerChangeFilter = ({ target }) => {
     this.setState({ filter: target.value });
-    const result = [...contacts].filter(contact =>
-      contact.name.toLowerCase().includes(target.value.toLowerCase())
+  };
+
+  findByName = () => {
+    const { contacts, filter } = this.state;
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
     );
-    console.log(result);
   };
 
   render() {
     const { contacts, filter } = this.state;
+
     return (
       <Section title={'Phonebook'}>
         <PhoneForm addContact={this.addContact} />
-        <Filter filter={filter} hendleChangeFilter={this.hendleChangeFilter} />
-        <ContactsList title={'Contacts'} contacts={contacts} />
+        <Filter
+          filter={filter}
+          handlerChangeFilter={this.handlerChangeFilter}
+        />
+        <ContactsList title={'Contacts'} contacts={this.findByName} />
       </Section>
     );
   }
