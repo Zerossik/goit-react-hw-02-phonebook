@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
-import { Input } from 'components/Styled/Input.styled';
-
+import { Input } from 'components/PhonebookForm/PhonebookForm.styled';
 export function Filter({ filter, handlerChangeFilter }) {
   return (
     <label>

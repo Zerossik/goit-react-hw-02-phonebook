@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { Section } from './Section/Section';
 import { PhoneForm } from './PhonebookForm/PhonebookForm';
 import { ContactsList } from './ContactsList/ContactsList';
+import { ContactListItem } from './ContactsList/ContactListItem';
 import { Filter } from './Filter/Filter';
 
 export class App extends Component {
@@ -16,6 +17,12 @@ export class App extends Component {
   };
 
   addContact = contact => {
+    const { contacts } = this.state;
+    const result = contacts.find(({ name }) => name === contact.name);
+    if (result) {
+      alert('Rosie Simpson is already in contacts');
+      return;
+    }
     this.setState(prevState => ({
       contacts: [...prevState.contacts, contact],
     }));
@@ -32,6 +39,12 @@ export class App extends Component {
     );
   };
 
+  deleteContact = contactId => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(({ id }) => id !== contactId),
+    }));
+  };
+
   render() {
     const { filter } = this.state;
 
@@ -42,7 +55,12 @@ export class App extends Component {
           filter={filter}
           handlerChangeFilter={this.handlerChangeFilter}
         />
-        <ContactsList title={'Contacts'} contacts={this.findByName} />
+        <ContactsList title={'Contacts'}>
+          <ContactListItem
+            contacts={this.findByName}
+            deleteContact={this.deleteContact}
+          />
+        </ContactsList>
       </Section>
     );
   }

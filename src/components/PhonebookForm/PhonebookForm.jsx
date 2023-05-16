@@ -1,10 +1,12 @@
 import { Component } from 'react';
-import { NameInput } from 'components/NameInput/NameInput';
-import { PhoneInput } from 'components/PhoneInput/PhoneInput';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
-import { FormButton } from './PhonebookForm.styled';
-import { StyledLabel, Required } from 'components/Styled/Label.styled';
+import {
+  FormButton,
+  Input,
+  StyledLabel,
+  Required,
+} from './PhonebookForm.styled';
 
 export class PhoneForm extends Component {
   state = {
@@ -43,13 +45,31 @@ export class PhoneForm extends Component {
         <StyledLabel>
           Name<Required>*</Required>
           <br />
-          <NameInput name={name} handlerChange={this.handlerChange} />
+          <Input
+            type="text"
+            name="name"
+            value={name}
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
+            onChange={this.handlerChange}
+            placeholder="Your Name"
+          />
         </StyledLabel>
         <br />
         <StyledLabel>
           Number<Required>*</Required>
           <br />
-          <PhoneInput number={number} handlerChange={this.handlerChange} />
+          <Input
+            type="tel"
+            name="number"
+            value={number}
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+            onChange={this.handlerChange}
+            placeholder="+380000000000"
+          />
         </StyledLabel>
         <br />
         <FormButton type="submit">Add contact</FormButton>
