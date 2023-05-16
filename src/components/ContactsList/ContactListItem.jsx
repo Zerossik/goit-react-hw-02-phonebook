@@ -14,4 +14,5 @@ export function ContactListItem({ contacts, deleteContact }) {
 }
 ContactListItem.propTypes = {
   contacts: PropTypes.func.isRequired,
+  deleteContact: PropTypes.func.isRequired,
 };
