@@ -2,7 +2,6 @@ import { Component } from 'react';
 import { Section } from './Section/Section';
 import { PhoneForm } from './PhonebookForm/PhonebookForm';
 import { ContactsList } from './ContactsList/ContactsList';
-import { ContactListItem } from './ContactsList/ContactListItem';
 import { Filter } from './Filter/Filter';
 
 export class App extends Component {
@@ -55,12 +54,11 @@ export class App extends Component {
           filter={filter}
           handlerChangeFilter={this.handlerChangeFilter}
         />
-        <ContactsList title={'Contacts'}>
-          <ContactListItem
-            contacts={this.findByName}
-            deleteContact={this.deleteContact}
-          />
-        </ContactsList>
+        <ContactsList
+          title={'Contacts'}
+          contacts={this.findByName}
+          deleteContact={this.deleteContact}
+        />
       </Section>
     );
   }
